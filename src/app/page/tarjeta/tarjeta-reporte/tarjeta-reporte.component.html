@@ -1,0 +1,18 @@
+<div>
+  <h1>Cantidad de tarjetas por banco</h1>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="Banco">
+      <th mat-header-cell *matHeaderCellDef>Banco</th>
+      <td mat-cell *matCellDef="let element">{{ element.banco }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cantidad">
+      <th mat-header-cell *matHeaderCellDef>cantidad de tarjetas</th>
+      <td mat-cell *matCellDef="let element">{{ element.cantidad }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
