@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h1>REGISTRAR PLAN</h1>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Ingrese el nombre del plan" [(ngModel)]="plan.nombrePlan">
+
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Detalles del plan</mat-label>
+    <textarea matInput [(ngModel)]="plan.detallesPlan" placeholder="Ingrese informacion sobre el plan" [maxlength]="500"></textarea>
+  </mat-form-field>
+
+  <br>
+  <mat-form-field class="example-full-width">
+      <mat-label>Tiempo</mat-label>
+      <input matInput placeholder="Ingrese tiempo de duracion del plan" [(ngModel)]="plan.tiempoPlan">
+    </mat-form-field>
+  
+  <br>
+  <mat-form-field class="example-full-width">
+      <mat-label>Precio (Soles)</mat-label>
+      <input matInput [(ngModel)]="plan.precioPlan" type="number">
+  </mat-form-field>
+  <br>
+  
+  <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+  <button mat-raised-button color="warn" routerLink="/planes">Cancelar</button>
+  <p>{{mensaje}}</p>
+
+</div>

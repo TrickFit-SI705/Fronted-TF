@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>REGISTRAR PREGUNTA</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="Ingrese titulo de pregunta" [(ngModel)]="pregunta.tituloPregunta">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Contenido</mat-label>
+        <textarea matInput [(ngModel)]="pregunta.contenidoPregunta" placeholder="Ingrese contenido de la pregunta" [maxlength]="100"></textarea>
+      </mat-form-field>
+    <br>
+    
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Usuario</mat-label>
+        <mat-select [(value)]="idUsuarioSelec" required>
+            <mat-option *ngFor="let u of listaUsuarios" [value]="u.idUsuario">
+                {{u.nombreUsuario}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Respuesta</mat-label>
+        <textarea matInput [(ngModel)]="pregunta.respuestaPregunta" placeholder="Ingrese respuesta de la pregunta"></textarea>
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/preguntas">Cancelar</button>
+    </div>
+    

@@ -1,0 +1,65 @@
+<div class="buscaralimento">
+  <h2>TARJETAS</h2>
+  <label class="form-label" style="margin-right: 10px;"> Buscar tarjeta: </label>
+  <app-tarjeta-buscar></app-tarjeta-buscar>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element?.idTarjeta }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="numeroTarjeta">
+      <th mat-header-cell *matHeaderCellDef>Numero de tarjeta</th>
+      <td mat-cell *matCellDef="let element">
+        XXXX - XXXX - XXXX - {{ element?.numeroTarjeta.substring(12, 16) }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="banco">
+      <th mat-header-cell *matHeaderCellDef>Banco</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.banco.nombreBanco }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="primary" style="margin-right: 5px;"
+          [routerLink]="['edicion', element.idTarjeta]"
+        >
+          Actualizar
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="confirmar(element.idTarjeta)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="getCantidad()"
+    [pageSize]="10"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
+<button
+  mat-mini-fab
+  color="primary"
+  aria-label="Example icon button with a plus one icon"
+  routerLink="/tarjetas/nuevo"
+>
+  <mat-icon>plus_one</mat-icon>
+</button>

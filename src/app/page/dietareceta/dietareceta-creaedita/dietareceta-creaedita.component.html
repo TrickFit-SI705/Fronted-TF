@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>REGISTRAR DIETA - RECETA</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Dieta</mat-label>
+        <mat-select [(value)]="idDietaSelec" required>
+            <mat-option *ngFor="let u of listaDietas" [value]="u.idDieta">
+                {{u.tituloDieta}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Receta</mat-label>
+        <mat-select [(value)]="idRecetaSelec" required>
+            <mat-option *ngFor="let u of listaRecetas" [value]="u.idReceta">
+                {{u.tituloReceta}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/dieta_recetas">Cancelar</button>
+    </div>
+    

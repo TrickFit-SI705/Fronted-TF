@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>REGISTRAR RUTINA - EJERCICIO</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Rutina</mat-label>
+        <mat-select [(value)]="idRutinaSelec" required>
+            <mat-option *ngFor="let r of listaRutinas" [value]="r.idRutina">
+                {{r.tituloRutina}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Ejercicio</mat-label>
+        <mat-select [(value)]="idEjercicioSelec" required>
+            <mat-option *ngFor="let e of listaEjercicios" [value]="e.idEjercicio">
+                {{e.tituloEjercicio}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/rutina_ejercicios">Cancelar</button>
+    </div>
+    

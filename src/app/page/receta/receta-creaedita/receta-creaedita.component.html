@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h1>REGISTRAR RECETA</h1>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Titulo</mat-label>
+    <input matInput required placeholder="Ingrese titulo de la receta" [(ngModel)]="receta.tituloReceta">
+
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput [(ngModel)]="receta.descripReceta" placeholder="Ingrese información sobre la receta" [maxlength]="500"></textarea>
+  </mat-form-field>
+
+  <br>
+  <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+  <button mat-raised-button color="warn" routerLink="/recetas">Cancelar</button>
+  <p>{{mensaje}}</p>
+
+</div>

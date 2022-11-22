@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%;
+ }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    text-align: center;
+    justify-content: center;
+}
+table{
+    width: 95%;
+    margin: 1em auto;
+}
+
+.mat-elevation-z8 {
+    width: 80%;
+    margin: 1em auto;
+}
+
+th.mat-header-cell {
+    text-align: center !important;
+}
+
+.example-full-width {
+    width: 30%;
+}
+
+.cdk-column-acciones{
+    width: 400px;
+}
+

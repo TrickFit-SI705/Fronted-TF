@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>REGISTRAR RECETA - ALIMENTOS</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Receta</mat-label>
+        <mat-select [(value)]="idRecetaSelec" required>
+            <mat-option *ngFor="let r of listaRecetas" [value]="r.idReceta">
+                {{r.tituloReceta}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Alimento</mat-label>
+        <mat-select [(value)]="idAlimentosSelec" required>
+            <mat-option *ngFor="let a of listaAlimentos" [value]="a.idAlimento">
+                {{a.nombreAlimento}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/receta_alimentos">Cancelar</button>
+    </div>
+    

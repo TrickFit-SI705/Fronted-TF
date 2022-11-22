@@ -1,0 +1,83 @@
+<div class="buscar">
+  <h2>USUARIOS</h2>
+  <label class="form-label" style="margin-right: 10px;"> Buscar por DNI: </label>
+  <app-usuario-buscar></app-usuario-buscar>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element?.idUsuario }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dni">
+      <th mat-header-cell *matHeaderCellDef>DNI</th>
+      <td mat-cell *matCellDef="let element">{{ element?.dni }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element?.nombreUsuario }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element?.emailUsuario }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="peso">
+      <th mat-header-cell *matHeaderCellDef>Peso (Kg)</th>
+      <td mat-cell *matCellDef="let element">{{ element?.pesoUsuario }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="estatura">
+      <th mat-header-cell *matHeaderCellDef>Estatura (cm)</th>
+      <td mat-cell *matCellDef="let element">{{ element?.estaturaUsuario }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipousuario">
+      <th mat-header-cell *matHeaderCellDef>Tipo de Usuario</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.tipo_usuario.nombreTipoUsuario }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="primary" style="margin-right: 5px;"
+          [routerLink]="['edicion', element.idUsuario]"
+        >
+          Actualizar
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="confirmar(element.idUsuario)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="getCantidad()"
+    [pageSize]="10"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
+<button
+  mat-mini-fab
+  color="primary"
+  aria-label="Example icon button with a plus one icon"
+  routerLink="/usuarios/nuevo"
+>
+  <mat-icon>plus_one</mat-icon>
+</button>

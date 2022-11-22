@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>REGISTRAR TARJETA</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Numero de tarjeta</mat-label>
+        <input matInput placeholder="Ingrese numero de la tarjeta" [(ngModel)]="tarjeta.numeroTarjeta" [maxlength]="16">
+    </mat-form-field>
+    
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Banco</mat-label>
+        <mat-select [(value)]="idBancoSelec" required>
+            <mat-option *ngFor="let b of listaBancos" [value]="b.idBanco">
+                {{b.nombreBanco}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/tarjetas">Cancelar</button>
+</div>
+    

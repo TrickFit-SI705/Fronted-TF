@@ -1,0 +1,17 @@
+<div class="container">
+
+    <h1>REGISTRAR TIPO DE USUARIO</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput required placeholder="Ingrese nombre del tipo de usuario" [(ngModel)]="tipousuario.nombreTipoUsuario">
+    </mat-form-field>
+  
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/tipo_usuarios">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>
+
+

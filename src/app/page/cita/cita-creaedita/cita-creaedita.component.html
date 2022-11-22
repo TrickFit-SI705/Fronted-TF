@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>REGISTRAR CITA</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Usuario</mat-label>
+        <mat-select [(value)]="idUsuarioSelec" required>
+            <mat-option *ngFor="let u of listaUsuarios" [value]="u.idUsuario">
+                {{u.nombreUsuario}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Especialista</mat-label>
+        <mat-select [(value)]="idEspecialistaSelec" required>
+            <mat-option *ngFor="let u of listaUsuarios" [value]="u.idUsuario">
+                {{u.nombreUsuario}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Fecha de fabricaciòn</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="fechaSeleccionada" [min]="minFecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Hora (HH:MM)</mat-label>
+        <input matInput placeholder="Ingrese hora de la cita" [(ngModel)]="cita.horaCita" [maxlength]="4">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/citas">Cancelar</button>
+    <p>{{mensaje}}</p>
+</div>

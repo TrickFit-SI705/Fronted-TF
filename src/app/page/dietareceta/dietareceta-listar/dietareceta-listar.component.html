@@ -1,0 +1,67 @@
+<div class="buscaralimento">
+  <h2>DIETA - RECETAS</h2>
+  <label class="form-label" style="margin-right: 10px;">
+    Buscar dieta y recetas:
+  </label>
+  <app-dietareceta-buscar></app-dietareceta-buscar>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element?.idDieta_Receta }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dieta">
+      <th mat-header-cell *matHeaderCellDef>Dieta</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.dieta.tituloDieta }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="receta">
+      <th mat-header-cell *matHeaderCellDef>Receta</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.receta.tituloReceta }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="primary" style="margin-right: 5px;"
+          [routerLink]="['edicion', element.idDieta_Receta]"
+        >
+          Actualizar
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="confirmar(element.idDieta_Receta)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="getCantidad()"
+    [pageSize]="10"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
+<button
+  mat-mini-fab
+  color="primary"
+  aria-label="Example icon button with a plus one icon"
+  routerLink="/dieta_recetas/nuevo"
+>
+  <mat-icon>plus_one</mat-icon>
+</button>

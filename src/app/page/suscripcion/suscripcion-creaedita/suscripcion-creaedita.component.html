@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>REGISTRAR SUSCRIPCION</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Usuario</mat-label>
+        <mat-select [(value)]="idUsuarioSelec" required>
+            <mat-option *ngFor="let u of listaUsuarios" [value]="u.idUsuario">
+                {{u.nombreUsuario}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Fecha de fabricaciòn</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="fechaSeleccionada">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Tarjeta</mat-label>
+        <mat-select [(value)]="idTarjetaSelec" required>
+            <mat-option *ngFor="let t of listaTarjetas" [value]="t.idTarjeta">
+                {{t.numeroTarjeta}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Plan</mat-label>
+        <mat-select [(value)]="idPlanSelec" required>
+            <mat-option *ngFor="let p of listaPlanes" [value]="p.idPlan">
+                {{p.nombrePlan}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/suscripciones">Cancelar</button>
+    <p>{{mensaje}}</p>
+</div>
+    

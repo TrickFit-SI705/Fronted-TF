@@ -1,0 +1,75 @@
+<div class="d-inline p-1" id="buscarplan">
+  <h2>PLANES</h2>
+  <label class="form-label" style="margin-right: 10px;"> Buscar plan: </label>
+  <app-plan-buscar></app-plan-buscar>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element?.idPlan }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element?.nombrePlan }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="detalle">
+      <th mat-header-cell *matHeaderCellDef>Detalles</th>
+      <td mat-cell *matCellDef="let element">{{ element?.detallesPlan }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tiempo">
+      <th mat-header-cell *matHeaderCellDef>Tiempo de plan</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.tiempoPlan }} meses
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef>Precio</th>
+      <td mat-cell *matCellDef="let element">S/ {{ element?.precioPlan }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="primary" style="margin-right: 5px;"
+          [routerLink]="['edicion', element?.idPlan]"
+        >
+          Actualizar
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="confirmar(element.idPlan)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="getCantidad()"
+    [pageSize]="10"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
+<div class="example-button-container">
+  <button
+    mat-mini-fab
+    color="primary"
+    aria-label="Example icon button with a plus one icon"
+    routerLink="/planes/nuevo"
+  >
+    <mat-icon>plus_one</mat-icon>
+  </button>
+</div>

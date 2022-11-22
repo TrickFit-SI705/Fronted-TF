@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h1>REGISTRAR EJERCICIO</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Titulo</mat-label>
+      <input matInput required placeholder="Ingrese titulo del ejercicio" [(ngModel)]="ejercicio.tituloEjercicio">
+  
+    </mat-form-field>
+  
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput [(ngModel)]="ejercicio.descripEjercicio" placeholder="Ingrese informacion sobre el ejercicio"></textarea>
+    </mat-form-field>
+  
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/ejercicios">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>
+
+

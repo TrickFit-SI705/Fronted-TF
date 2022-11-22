@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>REGISTRAR RUTINA</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="Ingrese titulo de la rutina" [(ngModel)]="rutina.tituloRutina">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Informacion</mat-label>
+        <textarea matInput [(ngModel)]="rutina.contenidoRutina" placeholder="Ingrese informacion sobre la rutina" [maxlength]="500"></textarea>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nivel de rutina</mat-label>
+        <input matInput placeholder="Ingrese nivel de la rutina" [(ngModel)]="rutina.nivelRutina">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Usuario</mat-label>
+        <mat-select [(value)]="idUsuarioSelec" required>
+            <mat-option *ngFor="let u of listaUsuarios" [value]="u.idUsuario">
+                {{u.nombreUsuario}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Entrenador</mat-label>
+        <mat-select [(value)]="idEntrenadorSelec" required>
+            <mat-option *ngFor="let e of listaUsuarios" [value]="e.idUsuario">
+                {{e.nombreUsuario}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/rutinas">Cancelar</button>
+    </div>
+    

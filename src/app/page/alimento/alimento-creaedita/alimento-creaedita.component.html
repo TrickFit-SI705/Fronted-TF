@@ -1,0 +1,22 @@
+<div class="registro">
+
+  <h1>REGISTRAR ALIMENTO</h1>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput required placeholder="Ingrese el nombre del alimento" [(ngModel)]="alimento.nombreAlimento">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Calorias</mat-label>
+    <input matInput required [(ngModel)]="alimento.kcalAlimento" type="number">
+  </mat-form-field>
+  <br>
+
+  <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+  <button mat-raised-button color="warn" routerLink="/alimentos">Cancelar</button>
+  <p>{{mensaje}}</p>
+
+</div>
+

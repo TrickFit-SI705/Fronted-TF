@@ -1,0 +1,65 @@
+<div class="buscarrejercicio">
+  <h2>RUTINA - EJERCICIOS</h2>
+  <label class="form-label" style="margin-right: 10px;"> Buscar rutina y ejercicios: </label>
+  <app-rutinaejercicio-buscar></app-rutinaejercicio-buscar>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.idRutina_Ejercicio }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="rutina">
+      <th mat-header-cell *matHeaderCellDef>Rutina</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.rutina.tituloRutina }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="ejercicio">
+      <th mat-header-cell *matHeaderCellDef>Ejercicio</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.ejercicio.tituloEjercicio }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="primary" style="margin-right: 5px;"
+          [routerLink]="['edicion', element.idRutina_Ejercicio]"
+        >
+          Actualizar
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="confirmar(element.idRutina_Ejercicio)"
+        >
+          Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="getCantidad()"
+    [pageSize]="10"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
+<button
+  mat-mini-fab
+  color="primary"
+  aria-label="Example icon button with a plus one icon"
+  routerLink="/rutina_ejercicios/nuevo"
+>
+  <mat-icon>plus_one</mat-icon>
+</button>

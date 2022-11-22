@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>REGISTRAR USUARIO</h1>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>DNI</mat-label>
+        <input matInput placeholder="Ingrese DNI del usuario" [(ngModel)]="usuario.dni" [maxlength]="8">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Ingrese nombre del usuario" [(ngModel)]="usuario.nombreUsuario">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ingrese email del usuario" [(ngModel)]="usuario.emailUsuario" type="email">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Peso (kg)</mat-label>
+        <input matInput placeholder="Ingrese peso del usuario" [(ngModel)]="usuario.pesoUsuario" type="number">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Estatura (cm)</mat-label>
+        <input matInput placeholder="Ingrese estatura del usuario" [(ngModel)]="usuario.estaturaUsuario" type="number">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Seleccione Tipo de Usuario</mat-label>
+        <mat-select [(value)]="idTipoSelec" required>
+            <mat-option *ngFor="let tu of listaTipoUsuarios" [value]="tu.idTipoUsuario">
+                {{tu.nombreTipoUsuario}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="accent" routerLink="/usuarios">Cancelar</button>
+    </div>
+    
