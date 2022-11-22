@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Cantidad de preguntas no respondidas por usuario</h1>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef>Usuario</th>
+      <td mat-cell *matCellDef="let element">{{ element.usuario }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="pregunta">
+      <th mat-header-cell *matHeaderCellDef>
+        Cantidad de preguntas sin responder
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.pregunta }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
