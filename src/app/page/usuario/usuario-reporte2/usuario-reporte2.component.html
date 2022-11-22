@@ -1,0 +1,32 @@
+<div class="container">
+    <h1> Alimentos más consumidos por usuarios </h1>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="dni">
+            <th mat-header-cell *matHeaderCellDef> DNI </th>
+            <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Usuario </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="alimento">
+            <th mat-header-cell *matHeaderCellDef> Alimento </th>
+            <td mat-cell *matCellDef="let element"> {{element.alimento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cantidad">
+            <th mat-header-cell *matHeaderCellDef> Cantidad de veces por receta</th>
+            <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    </table>
+</div>
