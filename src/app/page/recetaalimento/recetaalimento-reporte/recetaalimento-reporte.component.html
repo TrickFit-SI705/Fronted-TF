@@ -1,0 +1,27 @@
+<div class="container">
+    <h1> Recetas enfocadas en la pérdida de peso (< 500kcal) </h1>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.idReceta_Alimento}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef> Receta </th>
+            <td mat-cell *matCellDef="let element"> {{element.tituloReceta}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalCal">
+            <th mat-header-cell *matHeaderCellDef> Total de calorías </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalCal}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    </table>
+</div>

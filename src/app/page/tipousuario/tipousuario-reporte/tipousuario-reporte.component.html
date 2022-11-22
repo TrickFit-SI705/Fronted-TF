@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Usuarios Clientes que tengan una cita esta semana</h1>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="nombreUsuario">
+      <th mat-header-cell *matHeaderCellDef>DNI</th>
+      <td mat-cell *matCellDef="let element">{{ element.dni }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nombrePlan">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
